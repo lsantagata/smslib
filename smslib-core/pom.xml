@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.smslib</groupId>
@@ -6,13 +7,14 @@
 		<version>dev-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
-	<artifactId>smslib</artifactId>
+	<artifactId>smslib-core</artifactId>
 	<packaging>jar</packaging>
 	<name>SMSLib - SMSLib</name>
 	<dependencies>
 		<dependency>
-			<!-- Optional dependency usually for Linux/MacOS - only required during runtime. 1:1 replacement of RXTX but
-			with active community and "hidden" native library loading: https://code.google.com/p/nrjavaserial/ -->
+			<!-- Optional dependency usually for Linux/MacOS - only required during 
+				runtime. 1:1 replacement of RXTX but with active community and "hidden" native 
+				library loading: https://code.google.com/p/nrjavaserial/ -->
 			<groupId>com.neuronrobotics</groupId>
 			<artifactId>nrjavaserial</artifactId>
 			<version>${nrjavaserial.version}</version>
@@ -57,19 +59,19 @@
 			<version>${simple.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.json</groupId> 
-			<artifactId>json</artifactId> 
-			<version>20090211</version> 
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20090211</version>
 		</dependency>
 		<dependency>
-			<groupId>javax.mail</groupId> 
-			<artifactId>mail</artifactId> 
-			<version>${mail.version}</version> 
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>${mail.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.fizzed</groupId> 
-			<artifactId>ch-smpp</artifactId> 
-			<version>${cloudhopper-smpp.version}</version> 
+			<groupId>com.fizzed</groupId>
+			<artifactId>ch-smpp</artifactId>
+			<version>${cloudhopper-smpp.version}</version>
 		</dependency>
 	</dependencies>
 	<build>
