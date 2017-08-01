@@ -27,7 +27,7 @@
   <dependencies>
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>smslib</artifactId>
+      <artifactId>smslib-core</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>

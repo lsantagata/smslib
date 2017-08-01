@@ -12,7 +12,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.smslib</groupId>
-			<artifactId>smslib</artifactId>
+			<artifactId>smslib-core</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
