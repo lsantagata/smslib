@@ -275,7 +275,7 @@ public class MySQLDatabaseHandler extends JDBCDatabaseHandler implements IDataba
 		try
 		{
 			db = getDbConnection();
-			s = db.prepareStatement("select message_id, sender_address, address, text, encoding, priority, request_delivery_report, flash_sms from smslib_out where sent_status = ? order by priority desc limit 50");
+			s = db.prepareStatement("select message_id, sender_address, address, text, encoding, priority, request_delivery_report, flash_sms from smslib_out join configuration_management_tools_campaign c on parent_id=c.id and c.is_active=1 and time(now()) between c.start and c.end where sent_status = ? order by priority desc limit 50");
 			s.setString(1, OutboundMessage.SentStatus.Unsent.toShortString());
 			rs = s.executeQuery();
 			while (rs.next())
