@@ -11,8 +11,7 @@ import org.smslib.smsserver.db.data.GatewayDefinition;
 import org.smslib.smsserver.db.data.GroupDefinition;
 import org.smslib.smsserver.db.data.NumberRouteDefinition;
 
-public interface IDatabaseHandler
-{
+public interface IDatabaseHandler {
 	public Collection<GatewayDefinition> getGatewayDefinitions(String profile) throws Exception;
 
 	public Collection<NumberRouteDefinition> getNumberRouteDefinitions(String profile) throws Exception;
@@ -30,4 +29,6 @@ public interface IDatabaseHandler
 	public void markMessageSent(MessageSentCallbackEvent event) throws Exception;
 
 	public Collection<OutboundMessage> getMessagesToSend() throws Exception;
+
+	public Collection<OutboundMessage> getMessagesToSend(int limit) throws Exception;
 }

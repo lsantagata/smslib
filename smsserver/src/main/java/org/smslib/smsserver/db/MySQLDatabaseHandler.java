@@ -266,7 +266,7 @@ public class MySQLDatabaseHandler extends JDBCDatabaseHandler implements IDataba
 		}
 	}
 
-	public Collection<OutboundMessage> getMessagesToSend() throws Exception
+	public Collection<OutboundMessage> getMessagesToSend(int limit) throws Exception
 	{
 		Collection<OutboundMessage> messages = new LinkedList<OutboundMessage>();
 		Connection db = null;
@@ -275,7 +275,7 @@ public class MySQLDatabaseHandler extends JDBCDatabaseHandler implements IDataba
 		try
 		{
 			db = getDbConnection();
-			s = db.prepareStatement("select message_id, sender_address, address, text, encoding, priority, request_delivery_report, flash_sms from smslib_out join configuration_management_tools_campaign c on parent_id=c.id and c.is_active=1 and time(now()) between c.start and c.end where sent_status = ? order by priority desc limit 50");
+			s = db.prepareStatement("select message_id, sender_address, address, text, encoding, priority, request_delivery_report, flash_sms from smslib_out join configuration_management_tools_campaign c on parent_id=c.id and c.is_active=1 and time(now()) between c.start and c.end where sent_status = ? order by priority desc limit " + String.valueOf(limit));
 			s.setString(1, OutboundMessage.SentStatus.Unsent.toShortString());
 			rs = s.executeQuery();
 			while (rs.next())
@@ -328,5 +328,11 @@ public class MySQLDatabaseHandler extends JDBCDatabaseHandler implements IDataba
 			if (db != null) db.close();
 		}
 		return messages;
+	}
+
+	@Override
+	public Collection<OutboundMessage> getMessagesToSend() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -46,7 +46,7 @@ public class OutboundServiceThread extends Thread
 					try
 					{
 						this.waitingState = true;
-						Thread.sleep(2000);
+						Thread.sleep(40000);
 						this.waitingState = false;
 					}
 					catch (InterruptedException e)
@@ -66,7 +66,7 @@ public class OutboundServiceThread extends Thread
 	{
 		try
 		{
-			Collection<OutboundMessage> messages = SMSServer.getInstance().getDatabaseHandler().getMessagesToSend();
+			Collection<OutboundMessage> messages = SMSServer.getInstance().getDatabaseHandler().getMessagesToSend(Service.getInstance().getGatewayIDs().size());
 			for (OutboundMessage m : messages)
 				Service.getInstance().queue(m);
 		}
