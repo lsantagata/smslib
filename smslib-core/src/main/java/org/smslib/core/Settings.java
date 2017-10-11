@@ -21,7 +21,7 @@ public class Settings
 
 	public static int gatewayDispatcherQueueTimeout = 1000;
 
-	public static int gatewayDispatcherYield = 0;
+	public static int gatewayDispatcherYield = 60000;
 
 	public static int callbackDispatcherQueueTimeout = 1000;
 
