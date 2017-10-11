@@ -46,7 +46,7 @@ public class OutboundServiceThread extends Thread
 					try
 					{
 						this.waitingState = true;
-						Thread.sleep(40000);
+						Thread.sleep(2000);
 						this.waitingState = false;
 					}
 					catch (InterruptedException e)
